@@ -48,10 +48,9 @@ func GenerateSlug(slug string, existing ...string) string {
 	// remove all empty spaces if any from the initial slug
 	slug = strings.ReplaceAll(slug, " ", "")
 
-	// if the initial slug and processing strings `existing` are not
-	// passed, return a random string of length 6 - just a random
-	if slug == "" && len(existing) == 0 {
-		return RandomString(6)
+	// if the initial slug is empty a random slug of length 6 is generated
+	if slug == "" {
+		slug = RandomString(6)
 	}
 
 	// if `existing` is empty, return initial slug
