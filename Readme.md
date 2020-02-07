@@ -1,6 +1,8 @@
 # lib
 > Package lib is a collection of some of the commonly used solutions and functions, grouped together in one place.
 
+[![GoDoc](https://godoc.org/github.com/Shivam010/lib?status.svg)](https://godoc.org/github.com/Shivam010/lib)
+
 ### Request for Contribution
 Changes and improvements are more than welcome!! <br>
 Feel free to fork, create issues or pull a request. <br>
