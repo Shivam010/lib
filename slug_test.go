@@ -14,7 +14,9 @@
 
 package lib
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestGenerateSlug(t *testing.T) {
 	type args struct {
