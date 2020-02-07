@@ -1,23 +1,37 @@
-name: build
-on: [push]
+name: CI
+on: ["pull_request"]
+env:
+  GO111MODULE: on
+
 jobs:
-
   build:
-    name: Build
+    name: Build, Test & Analyse
     runs-on: ubuntu-latest
-    steps:
 
+    steps:
       - name: Set up Go 1.12
         uses: actions/setup-go@v1
         with:
           go-version: 1.12
-        id: go
 
       - name: Check out code into the Go module directory
         uses: actions/checkout@v1
 
-      - name: Build and Test
-        # `test` first triggers `build` which triggers `clean`
-        # which in turns triggers `vet` and `fmt` as a series
-        # of operations
-        run: make test
+      - name: Format using gofmt
+        run: go fmt ./...
+
+      - name: Run static analysis using vet
+        run: go vet ./...
+
+      - name: Compile code
+        run: go build ./...
+
+      - name: Run all tests with coverage
+        run: go test -v -covermode=count -coverprofile=coverage.out ./...
+
+      - name: Send coverage to Coveralls
+        env:
+          COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          GO111MODULE=off go get -u github.com/mattn/goveralls
+          $(go env GOPATH)/bin/goveralls -coverprofile=coverage.out -service=github
