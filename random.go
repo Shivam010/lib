@@ -12,6 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Package lib is a collection of some of the commonly used solutions
-// and functions, grouped together in one place.
 package lib
+
+import (
+	"math/rand"
+	"time"
+)
+
+const (
+	charset    = "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789"
+	charsetLen = int64(len(charset)) // 26+26+10 = 62
+)
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
+// RandomString returns a current time seeded random string
+// of provided length (n), using 62 characters [a-zA-Z0-9]
+func RandomString(n int) string {
+	b := make([]byte, n)
+	for i := range b {
+		b[i] = charset[rand.Int63()%charsetLen]
+	}
+	return string(b)
+}

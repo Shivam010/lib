@@ -1,0 +1,4 @@
+github.com/Shivam010/go-tmpl v0.0.0-20200206204443-a8bfbf714860 h1:j1eDrPm58XxqAD01+JXefyAu4mvn1UzRI6Cjk82GCjY=
+github.com/Shivam010/go-tmpl v0.0.0-20200206204443-a8bfbf714860/go.mod h1:PI4SGQaKP79u2jhPd+/08rHW8ehUp4FK1jb1YmWR3/w=
+github.com/Shivam010/lib v0.0.0-20200207062501-aa26f80a262e h1:GP+ldtxe9OAvmJIRu2iTm7cRyw+RlQ1Jh+aoG0mahUU=
+github.com/Shivam010/lib v0.0.0-20200207062501-aa26f80a262e/go.mod h1:EZ0Xg9v0f6DG2kcFhOmm8W0FjrhI2BnYvS9f/YVHJOc=
